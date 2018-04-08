@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<meta http-equiv="refresh" content="60;">
+
+    <title>Wheres the Shuttle?</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap core CSS -->
+      {% load static %}
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom fonts for this template -->
+    <link href="../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link href="../static/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="../static/css/freelancer.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <div class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top"><i class="fa fa-bus"></i> Where's the Shuttle?</a>
+
+
+      </div>
+    </div>
+
+	
+	
+    <!-- Header -->
+    <header class="masthead bg-primary text-white text-center">
+      <div class="container">
+        <img class="img-fluid mb-5 d-block mx-auto" src="../static/img/profile.png" alt="">
+      </div>
+	  
+	  <div class="line_main">
+        <h1 class="text-uppercase mb-0" class="mypanel"> Main Line</h1>
+        <hr class="star_main">
+		
+        <h2 class="font-weight-light mb-0">  <div class="main"></div></h2>
+      </div>
+	  
+	  <div class="line_valley">
+        <h1 class="text-uppercase mb-0" class="mypanel"> Valley Line</h1>
+        <hr class="star_valley">
+		
+        <h2 class="font-weight-light mb-0">  <div class="valley"></div></h2>
+      </div>
+	  
+	  <div class="line_safe">
+        <h1 class="text-uppercase mb-0" class="mypanel"> Safe Ride</h1>
+        <hr class="star_safe">
+		
+        <h2 class="font-weight-light mb-0">  <div class="safe"></div></h2>
+      </div>
+	  
+	  <div class="line_sunday">
+        <h1 class="text-uppercase mb-0" class="mypanel"> Sunday Route</h1>
+        <hr class="star_sunday">
+		
+        <h2 class="font-weight-light mb-0">  <div class="sunday"></div></h2>
+      </div>
+    </header>
+
+    <script>
+	
+		
+		function is_line_running (line){	
+			if (line[0] == 'Sorry! This Shuttle is not running at this time.') {
+					var replace_class = $('.line_' + line[1] );
+					replace_class.addClass('line4');
+					replace_class.removeClass('line_' + line[1]);
+					
+					var replace_star = $('.star_' + line[1] );
+					replace_star.addClass('star-light5');
+					replace_star.removeClass('star_' + line[1]);
+				}
+
+			else {
+					var replace_class = $('.line_' + line[1]);
+					replace_class.addClass('line3');
+					replace_class.removeClass('line_' + line[1])
+					
+					var replace_star = $('.star_' + line[1] );
+					replace_star.addClass('star-light4');
+					replace_star.removeClass('star_' + line[1]);
+				}
+		}
+
+
+    $.getJSON('https://wpushuttle.herokuapp.com/json', function(data) {
+        
+		var main = [`${data.location_main}`,"main"]
+		var valley = [`${data.location_valley}`,"valley"]
+		var safe = [`${data.location_safe}`, "safe"]
+		var sunday = [`${data.location_sunday}`,"sunday"]
+		
+		is_line_running (main);
+		is_line_running (valley);
+		is_line_running (safe);
+		is_line_running (sunday);
+	
+
+		$(".main").html(main[0]);
+		$(".valley").html(valley[0]);
+		$(".safe").html(safe[0]);
+		$(".sunday").html(sunday[0]);
+    });
+	
+
+    </script>
+	
+
+    <div class="copyright py-4 text-center text-white">
+      <div class="container">
+ <b><a href="https://www.wpunj.edu/commuter/shuttlemap.pdf">Full Shuttle Schedule</a></B><BR>
+    <hr class="star-light">
+ <span>Copyright © 2018 Rodantny J. Reyes </span>
+      </div>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../static/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="../static/js/jqBootstrapValidation.js"></script>
+    <script src="../static/js/contact_me.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="../static/js/freelancer.min.js"></script>
+
+  </body>
+
+</html>
