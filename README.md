@@ -1,5 +1,7 @@
 # WPUNJ Shuttle Bus Tracker
 
+![Wheres the Shuttle?](http://hexadecimalconverter.com/images/shuttlelogo.png)
+
 
 Web application that allows William Paterson students track the current location of all four
 campus shuttle buses.
