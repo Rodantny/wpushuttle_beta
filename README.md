@@ -1,8 +1,7 @@
 # WPUNJ Shuttle Bus Tracker
 
 ![Wheres the Shuttle?](http://hexadecimalconverter.com/images/shuttlelogo.png)
-
-
+THIS IS THE ORIGINAL VERSION OF THIS APPLICATION. BUILT PURELY IN DJANGO.
 Web application that allows William Paterson students track the current location of all four
 campus shuttle buses.
 
